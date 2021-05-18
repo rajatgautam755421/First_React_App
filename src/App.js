@@ -6,7 +6,7 @@ import Todos from "./myComponents/todos";
 import About from "./myComponents/about";
  import Contact from "./myComponents/contact";
  import Cards from "./myComponents/cards";
-import Sidenav from "./myComponents/sidenav";
+
 import Footer from "./myComponents/footer";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
@@ -42,13 +42,10 @@ function App() {
     <>
      
       <Router>
-        <div className="container-fluid">
-          <div className="row">
-            <div className="col-sm-1">
-      <Sidenav/>
-      </div>
-      <div className="col-sm-11 ">
-        <Header searchBar={true} />
+      <Header searchBar={true}/>
+      
+     
+        {/* */}
      
         <Switch>
           <Route
@@ -105,9 +102,9 @@ function App() {
 
    
         <Footer />
-        </div>
-        </div>
-        </div>
+   
+
+        
       </Router>
     </>
   );

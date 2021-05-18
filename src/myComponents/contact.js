@@ -3,7 +3,7 @@ import React from 'react'
 const Contact = () => {
   return (
    <>
-      <div className="container">
+      <div className="container my-3">
         <form >
           <div className="form-group">
             <label for="exampleInputEmail1">Email address</label>
