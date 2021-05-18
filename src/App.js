@@ -1,24 +1,115 @@
-import logo from './logo.svg';
-import './App.css';
+
+import "./App.css";
+import Header from "./myComponents/header";
+import Image from "./myComponents/images";
+import Todos from "./myComponents/todos";
+import About from "./myComponents/about";
+ import Contact from "./myComponents/contact";
+ import Cards from "./myComponents/cards";
+import Sidenav from "./myComponents/sidenav";
+import Footer from "./myComponents/footer";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
+// import maps from "./myComponents/googlemaps";
 
 function App() {
+  const onDelete = () => {
+    console.log("Deleted");
+  };
+  let todos = [
+    {
+      sno: 1,
+      title: "Go to market",
+      desc: "Please go to the market",
+    },
+    {
+      sno: 2,
+      title: "Do Homework",
+      desc: "Please do  the homework",
+    },
+    {
+      sno: 1,
+      title: "Coding",
+      desc: "Please Code",
+    },
+    {
+      sno: 1,
+      title: "Go to pharmacy",
+      desc: "Please go to pharmacy",
+    },
+  ];
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+     
+      <Router>
+        <div className="container-fluid">
+          <div className="row">
+            <div className="col-sm-1">
+      <Sidenav/>
+      </div>
+      <div className="col-sm-11 ">
+        <Header searchBar={true} />
+     
+        <Switch>
+          <Route
+            exact
+            path="/"
+           
+          >  <Image/>  <Todos todos={todos} onDelete={onDelete} /> </Route>
+                 <Route exact path="/cards">
+          <div className="container my-3">
+     <div className="row">
+           <div className="col-md-4 ">
+
+<Cards img1={"https://source.unsplash.com/400x200/?django,python"}/>
+           </div>
+           <div className="col-md-4 ">
+           <Cards   img1={"https://source.unsplash.com/400x200/?node,javascript"}/>
+             
+</div>
+<div className="col-md-4">
+
+<Cards  img1={"https://source.unsplash.com/400x200/?c++,c#"}/>         
+</div>
+     </div>
+
+          </div>
+          <div className="container my-3">
+     <div className="row">
+           <div className="col-md-4 ">
+
+<Cards img1={"https://source.unsplash.com/400x200/?coding,c#"}/>
+           </div>
+           <div className="col-md-4 ">
+           <Cards   img1={"https://source.unsplash.com/400x200/?vuejs,reactjs"}/>
+             
+</div>
+<div className="col-md-4">
+
+<Cards  img1={"https://source.unsplash.com/400x200/?javascript,nextjs"}/>         
+</div>
+     </div>
+
+          </div>
+       
+          </Route>
+          <Route exact path="/about">
+            <About />
+          </Route>
+          <Route exact path="/contact">
+            <Contact/>
+          
+          </Route>
+
+        </Switch>
+
+   
+        <Footer />
+        </div>
+        </div>
+        </div>
+      </Router>
+    </>
   );
 }
 
