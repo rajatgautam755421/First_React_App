@@ -1,16 +1,10 @@
-import React from "react";
-import {useForm} from "react-hook-form"
+import React from 'react'
 
-export default function Contact() {
-const {register,handleSubmit, formState: { errors }}= useForm();
-const onSubmit = (data)=>{
-  console.log(data);
-}
-
+const Contact = () => {
   return (
-    
-       <div className="container">
-        <form onSubmit = {handleSubmit(onSubmit)}>
+   <>
+      <div className="container">
+        <form >
           <div className="form-group">
             <label for="exampleInputEmail1">Email address</label>
             <input
@@ -19,7 +13,7 @@ const onSubmit = (data)=>{
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
               placeholder="Enter email"
-              {...register('Email',{required : true})}
+            
             />
             <small id="emailHelp" className="form-text text-muted">
               We'll never share your email with anyone else.
@@ -32,7 +26,7 @@ const onSubmit = (data)=>{
               className="form-control"
               id="exampleInputPassword1"
               placeholder="Password"
-              {...register('Password',{required : true})}
+            
             />
           </div>
           <div className="form-check">
@@ -45,9 +39,12 @@ const onSubmit = (data)=>{
               Check me out
             </label>
           </div>
-          {errors.message && errors.message.message}
+       
          <input type="submit"></input>
         </form>
-    </div>
-  );
+        </div>
+   </>
+  )
 }
+
+export default Contact
